@@ -3,7 +3,8 @@
 \usepackage{calc,xunicode,amssymb,amsfonts,multicol,tabu,fontspec,xeCJK,xeCJKfntef}
 \usepackage{xcolor,graphicx,eso-pic,tocloft,datetime2,paralist,enumitem,xelatexemoji}
 
-\xeCJKsetup{PunctStyle=plain,RubberPunctSkip=false,CJKglue=\hskip 0pt plus 0.11em,CJKecglue=\hskip 0.25em plus 0.25em}
+\newcommand{\myvphantom}[0]{\vphantom{QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890ςρθδφγηξλζχψβμ\"A}}
+\xeCJKsetup{PunctStyle=plain,RubberPunctSkip=false,CJKglue=\myvphantom\hskip 0pt plus 0.11em,CJKecglue=\hskip 0.25em plus 0.25em}
 \XeTeXlinebreaklocale "zh"
 \XeTeXlinebreakskip = 0pt
 
@@ -35,7 +36,6 @@
 \newcommand{\msgMainContent}[1]{%
     \parbox{\linewidth}{\normalsize\rmfamily#1}\par
 }
-% \providecommand{\tightlist}[0]{}
 \providecommand{\tightlist}{%
     \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}%
 }
@@ -66,16 +66,14 @@
             \center\rmfamily\fontspec{Old Standard}\Huge\baselineskip=40pt
             A\hfill O\hfill S\hfill C~~\hfill M\hfill E\hfill M\hfill E\hfill S\\
             C\hfill O\hfill L\hfill L\hfill E\hfill C\hfill T\hfill I\hfill O\hfill N\\
-            \addfontfeature{LetterSpace=22}__issue_id__
+            \addfontfeature{LetterSpace=22}\MakeUppercase{__issue_id__}
         }\par
 		\vfill
         \sffamily
 		\normalsize
         Built with \LaTeX~on GNU/Linux.\\
         An unofficial publication from Always Overuse Shell Community.
-        % Last Build Date \today
 	\end{center}
-	% \large AOSC MEMES COLLECTION 2022\par\vskip 20pt
 \end{titlepage}
 
 

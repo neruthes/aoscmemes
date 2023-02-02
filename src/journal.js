@@ -2,7 +2,7 @@ const { execSync } = require('child_process');
 const fs = require('fs');
 
 const json_fn = process.argv[2];
-const collection_year = json_fn.match(/\d{4}/)[0]
+const collection_year = json_fn.split('/').reverse()[1];
 
 
 
@@ -39,7 +39,7 @@ const sanitizeLatexCode = function (inputText, opt) {
 
 
 
-
+console.log('collection_year', collection_year);
 const issue_data = JSON.parse(fs.readFileSync(json_fn).toString());
 
 
@@ -67,6 +67,7 @@ if (process.env.ACTION === 'tex') {
                 };
             }).join('');
         };
+        text = text.replace(/\n\s*/g, '\n');
         const text2 = execSync('pandoc -t latex', { input: text }).toString().trim();
         const msg_info = {
             // type: msg.type,
@@ -79,7 +80,7 @@ if (process.env.ACTION === 'tex') {
         };
         return `
 \\channelMsgEntry{%
-    \\msgRealSource{${sanitizeLatexCode(msg_info.forwarded_from || msg_info.msg.author)}}{${msg_info.date}}%
+    \\msgRealSource{${sanitizeLatexCode(msg_info.forwarded_from || msg_info.msg.author || 'Deleted Account')}}{${msg_info.date}}%
     \\msgMainContent{${msg_info.text2.trim()}}%
     ${msg_info.msg.photo ? `\\nopagebreak\\includegraphics[width=\\linewidth]{./.tg-data/${collection_year}/${msg_info.msg.photo}}` : ''}%
 }`;

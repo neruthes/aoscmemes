@@ -1,0 +1,101 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage[textwidth=39em,vmargin=30mm]{geometry}
+\usepackage{calc,xunicode,amssymb,amsfonts,multicol,tabu,fontspec,xeCJK,xeCJKfntef}
+\usepackage{xcolor,graphicx,eso-pic,tocloft,datetime2,paralist,enumitem,xelatexemoji}
+
+\xeCJKsetup{PunctStyle=plain,RubberPunctSkip=false,CJKglue=\hskip 0pt plus 0.11em,CJKecglue=\hskip 0.25em plus 0.25em}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlength{\columnsep}{3em}
+\linespread{1.15}
+
+
+\setmainfont{C059}
+\setromanfont{C059}
+\setsansfont{Helvetica Neue}
+\setmonofont{JetBrains Mono}
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKromanfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+
+
+
+\newcommand{\channelMsgEntry}[1]{%
+    \parbox{\linewidth}{#1}%
+    \vskip 13pt plus 150mm minus 3pt
+}
+\newcommand{\msgRealSource}[2]{%
+    \parbox{\linewidth}{\small\sffamily\bfseries#1}\par\vskip 3pt
+    \parbox{\linewidth}{\small\ttfamily\mdseries#2}\par\vskip 4pt
+}
+\newcommand{\msgMainContent}[1]{%
+    \parbox{\linewidth}{\normalsize\rmfamily#1}\par
+}
+% \providecommand{\tightlist}[0]{}
+\providecommand{\tightlist}{%
+    \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}%
+}
+
+
+\title{AOSC MEMES COLLECTION - 2020}
+\author{AOSC}
+\date{2020}
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{document}
+\begin{titlepage}
+	\leavevmode
+	\vskip 50mm
+	\begin{center}
+        \rmfamily\fontspec{Old Standard}
+		\parbox{75mm}{
+            \center\rmfamily\fontspec{Old Standard}\Huge\baselineskip=40pt
+            A\hfill O\hfill S\hfill C~~\hfill M\hfill E\hfill M\hfill E\hfill S\\
+            C\hfill O\hfill L\hfill L\hfill E\hfill C\hfill T\hfill I\hfill O\hfill N\\
+            \addfontfeature{LetterSpace=22}2020
+        }\par
+		\vfill
+        \sffamily
+		\normalsize
+        Built with \LaTeX~on GNU/Linux.\\
+        An unofficial publication from Always Overuse Shell Community.
+        % Last Build Date \today
+	\end{center}
+	% \large AOSC MEMES COLLECTION 2022\par\vskip 20pt
+\end{titlepage}
+
+
+
+
+\begin{multicols*}{2}
+	\input{data/output_tex_code/2020.tex}
+\end{multicols*}
+
+
+
+
+\clearpage
+\leavevmode
+\vfill
+\small
+\sffamily
+The messages (text and images) collected in this document belong to their original authors.
+They may be copyrighted unless otherwise noted.
+This document is a working draft for preview purposes only and is not ready for copying, printing, or redistributing,
+given that the permissions from the authors of the messages are not yet fully obtained.
+Once the permissions are all obtained, this document will be published with CC BY-NC-ND license.
+\end{document}

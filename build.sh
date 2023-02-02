@@ -18,7 +18,7 @@ fi
 case $1 in
     .tg-data/*/result.json)
         ### From JSON to data tex
-        ACTION=tex node src/journal.js "$1"
+        node src/journal.js "$1"
         ;;
     data/output_tex_code/*.tex)
         ### From data tex to real tex
@@ -30,12 +30,12 @@ case $1 in
         issue_id="$(cut -d- -f2 <<< "$1" | cut -d. -f1)"
         bash "$0" "data/output_tex_code/$issue_id.tex"
         ntex "$1"
-        ACTION=authors bash "$0" ".tg-data/$issue_id/result.json"
+        ACTION=authors node src/journal.js ".tg-data/$issue_id/result.json"
         ;;
     journal/*.tex!)
         ### Do some preparation work then build PDF
         issue_id="$(cut -d- -f2 <<< "$1" | cut -d. -f1)"
-        ACTION=tex bash "$0" ".tg-data/$issue_id/result.json"
+        ACTION=tex node src/journal.js ".tg-data/$issue_id/result.json"
         bash "$0" "$(tr -d '!' <<< "$1")"
         ;;
 esac
